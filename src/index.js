@@ -17,4 +17,16 @@ ReactDOM.render(
   document.getElementById('root')
 )
 
+if (module.hot) {
+  module.hot.accept('./containers/AppContainer', () => {
+    const NextApp = require('./containers/AppContainer').default
+    ReactDOM.render(
+      <Provider store={store}>
+        <NextApp />
+      </Provider>, 
+      document.getElementById('root')
+    )
+  })
+}
+
 registerServiceWorker()
