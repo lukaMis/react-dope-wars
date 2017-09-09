@@ -9,7 +9,7 @@ export default function clickReducer(state = initialState, action) {
   switch(action.type) {
     
     case constants.CLICK_COUNT:
-      return Object.assign({}, state, {count: state.count + 1})
+      return {...state, count: state.count + action.value}
 
     default:
       return state
